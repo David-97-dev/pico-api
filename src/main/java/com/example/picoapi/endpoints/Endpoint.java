@@ -16,7 +16,7 @@ public class Endpoint {
     @PostMapping("/")
     String simplePost(@RequestBody String string) {
         System.out.println(string);
-        return ("Got you");
+        return ("Message Received");
     }
 
 }
