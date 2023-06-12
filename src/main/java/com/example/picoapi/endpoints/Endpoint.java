@@ -37,8 +37,9 @@ public class Endpoint {
     @PostMapping("/")
     String simplePost(@RequestBody String string) {
         list.add(string);
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         UUID id = UUID.randomUUID();
-        logger.info("Message Received UUID:" + id);
+        logger.info("Message received from " + request.getRemoteAddr() + " UUID:" + id + " payload: " + string);
         return ("[API] Message Received UUID: " + id);
     }
 
